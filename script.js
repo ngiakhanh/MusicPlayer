@@ -11,8 +11,9 @@ $(function()
 		trackTime = $('#track-time'),
 		insTime = $('#ins-time'),
 		sHover = $('#s-hover'),
-		playPauseButton = $("#play-pause-button"),
-		i = playPauseButton.find('i'),
+        playPauseButton = $("#play-pause-button"),
+        i = playPauseButton.find('i'),
+        playLoopButton = $("#play-loop-button"),
 		tProgress = $('#current-time'),
 		tTime = $('#track-length'),
 		seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
@@ -63,7 +64,13 @@ $(function()
         },300);
     }
 
-    	
+    function playLoop(){
+        setTimeout(function()
+        {
+            audio.loop = !audio.loop;
+        },300);
+    }
+
 	function showHover(event)
 	{
 		seekBarPos = sArea.offset(); 
@@ -247,7 +254,9 @@ $(function()
 		
 		audio.loop = false;
 		
-		playPauseButton.on('click',playPause);
+        playPauseButton.on('click',playPause);
+        
+        playLoopButton.on('click',playLoop);
 		
 		sArea.mousemove(function(event){ showHover(event); });
 		

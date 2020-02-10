@@ -62,7 +62,7 @@ body
     top: 0;
     right: 15px;
     left: 15px;
-    padding: 13px 22px 10px 184px;
+    padding: 14px 36px 17px 192px;
     background-color: #fff7f7;
     border-radius: 15px 15px 0 0;
     -webkit-transition: 0.3s ease top;
@@ -309,7 +309,7 @@ body
 
 #player-controls
 {
-    width: 250px;
+    width: 284px;
     height: 100%;
     margin: 0 5px 0 141px;
     float: right;
@@ -318,16 +318,16 @@ body
 
 .control
 {
-    width: 33.333%;
+    width: 20%;
     float: left;
     padding: 12px 0;
 }
 
 .button
 {
-    width: 26px;
+    width: 17px;
     height: 26px;
-    padding: 25px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 6px;
     cursor: pointer;
