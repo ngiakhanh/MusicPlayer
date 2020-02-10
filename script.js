@@ -189,12 +189,9 @@ $(function()
             albumArt.removeClass('buffering').removeClass('active');
             clearInterval(buffInterval);
             if (repeatAll === true && currIndex == songs.length - 1){
+                currIndex = -1;
                 selectTrack(0);
-                playerTrack.addClass('active');
-                albumArt.addClass('active');
-                checkBuffering();
-                i.attr('class','fas fa-pause');
-                audio.play();
+                playPauseButton.click();
             }
             else
             {
@@ -274,10 +271,10 @@ $(function()
         }
     }
 
-    function chooseFile(event) {
-        event.stopPropagation();
-
-    }
+    //function chooseFile(event) {
+    //    event.stopPropagation();
+    //
+    //}
 
     function initPlayer()
 	{	
@@ -291,16 +288,16 @@ $(function()
         
         playLoopButton.on('click',playLoop);
 
-        addPlayListButton.on('click', function(e){
-            inputFile.get(0).click();
-        });
+        // addPlayListButton.on('click', function(e){
+        //     inputFile.get(0).click();
+        // });
 
-        inputFile.change(function(){
-            var uploadFiles = inputFile.prop('files');
-            var directory = uploadFiles[0].webkitRelativePath;
-            alert("Playlist is uploaded successfully");
+        // inputFile.change(function(){
+        //     var uploadFiles = inputFile.prop('files');
+        //     var directory = uploadFiles[0].webkitRelativePath;
+        //     alert("Playlist is uploaded successfully");
             
-        })
+        // })
 
 		
 		sArea.mousemove(function(event){ showHover(event); });
