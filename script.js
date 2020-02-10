@@ -14,6 +14,7 @@ $(function()
         playPauseButton = $("#play-pause-button"),
         i = playPauseButton.find('i'),
         playLoopButton = $("#play-loop-button"),
+        iLoop = playLoopButton.find('i'),
 		tProgress = $('#current-time'),
 		tTime = $('#track-length'),
 		seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
@@ -67,8 +68,16 @@ $(function()
     function playLoop(){
         setTimeout(function()
         {
+            if (playLoopButton.hasClass('chosenButtonBackground')){
+                playLoopButton.removeClass('chosenButtonBackground');
+                iLoop.removeClass('chosenButtonIcon');
+            }
+            else{
+                playLoopButton.addClass('chosenButtonBackground');
+                iLoop.addClass('chosenButtonIcon');
+            }
             audio.loop = !audio.loop;
-        },300);
+        },100);
     }
 
 	function showHover(event)

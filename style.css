@@ -16,7 +16,7 @@ body
     top: 50%;
     right: 0;
     left: 0;
-    width: 430px;
+    width: 467px;
     height: 100px;
     margin: -4px auto;
 }
@@ -327,7 +327,7 @@ body
 {
     width: 17px;
     height: 26px;
-    padding: 20px;
+    padding: 19px;
     background-color: #fff;
     border-radius: 6px;
     cursor: pointer;
@@ -356,4 +356,12 @@ body
 .button:hover i
 {
     color: #fff;
+}
+
+.chosenButtonBackground {
+    background-color: #d6dee7; 
+}
+
+.chosenButtonIcon {
+    color: #fff !important;
 }
