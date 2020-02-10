@@ -15,6 +15,8 @@ $(function()
         i = playPauseButton.find('i'),
         playLoopButton = $("#play-loop-button"),
         iLoop = playLoopButton.find('i'),
+        addPlayListButton = $("#add-playlist-button"),
+        inputFile = $("#input"),
 		tProgress = $('#current-time'),
 		tTime = $('#track-length'),
 		seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
@@ -255,6 +257,11 @@ $(function()
         }
     }
 
+    function chooseFile(event) {
+        event.stopPropagation();
+
+    }
+
     function initPlayer()
 	{	
         audio = new Audio();
@@ -266,6 +273,18 @@ $(function()
         playPauseButton.on('click',playPause);
         
         playLoopButton.on('click',playLoop);
+
+        addPlayListButton.on('click', function(e){
+            inputFile.get(0).click();
+        });
+
+        inputFile.change(function(){
+            var uploadFiles = inputFile.prop('files');
+            var directory = uploadFiles[0].webkitRelativePath;
+            alert("Playlist is uploaded successfully");
+            
+        })
+
 		
 		sArea.mousemove(function(event){ showHover(event); });
 		

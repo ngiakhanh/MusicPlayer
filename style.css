@@ -16,8 +16,8 @@ body
     top: 50%;
     right: 0;
     left: 0;
-    width: 467px;
-    height: 100px;
+    width: 503px;
+    height: 179px;
     margin: -4px auto;
 }
 
@@ -309,9 +309,9 @@ body
 
 #player-controls
 {
-    width: 284px;
+    width: 323px;
     height: 100%;
-    margin: 0 5px 0 141px;
+    margin: -5px 10px 0 86px;
     float: right;
     overflow: hidden;
 }
@@ -320,16 +320,16 @@ body
 {
     width: 20%;
     float: left;
-    padding: 12px 0;
+    padding: 14px 0px;
 }
 
 .button
 {
-    width: 17px;
+    width: 41% !important;
     height: 26px;
-    padding: 19px;
+    padding: 20px;
     background-color: #fff;
-    border-radius: 6px;
+    border-radius: 0px;
     cursor: pointer;
 }
 
@@ -346,6 +346,7 @@ body
 {
     -webkit-transition: 0.2s ease all;
     transition: 0.2s ease all;
+    width: 26px;
 }
 
 .button:hover
@@ -364,4 +365,8 @@ body
 
 .chosenButtonIcon {
     color: #fff !important;
+}
+
+#input {
+    opacity: 0;
 }
