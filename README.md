@@ -1,2 +1,2 @@
 # MusicPlayer
-## Add playlist is under construction
+## Adding playlist feature is under construction
