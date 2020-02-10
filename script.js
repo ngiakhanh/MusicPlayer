@@ -20,7 +20,7 @@ $(function()
 		tProgress = $('#current-time'),
 		tTime = $('#track-length'),
 		seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
-		buffInterval = null, tFlag = false;
+		buffInterval = null, tFlag = false, repeatAll = false;
 	
 	var playPreviousTrackButton = $('#play-previous'), playNextTrackButton = $('#play-next'), currIndex = -1;
 	
@@ -28,6 +28,11 @@ $(function()
 		artist: "Dig Didzay",
 		name: "Nếu Anh Đi (Cover)",
 		url: "Musics/NeuAnhDi.mp3",
+		picture: "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg"
+	},{
+		artist: "Jack, KICM",
+		name: "Em Gi Oi",
+		url: "Musics/Em Gi Oi - Jack_ K-ICM.mp3",
 		picture: "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg"
 	}];
 	
@@ -78,7 +83,8 @@ $(function()
                 playLoopButton.addClass('chosenButtonBackground');
                 iLoop.addClass('chosenButtonIcon');
             }
-            audio.loop = !audio.loop;
+            //audio.loop = !audio.loop;
+            repeatAll = !repeatAll;
         },100);
     }
 
@@ -175,14 +181,25 @@ $(function()
         
 		seekBar.width(playProgress+'%');
 		
-		if( playProgress == 100 )
+		if( playProgress == 100)
 		{
 			i.attr('class','fa fa-play');
 			seekBar.width(0);
             tProgress.text('00:00');
             albumArt.removeClass('buffering').removeClass('active');
             clearInterval(buffInterval);
-			selectTrack(1);
+            if (repeatAll === true && currIndex == songs.length - 1){
+                selectTrack(0);
+                playerTrack.addClass('active');
+                albumArt.addClass('active');
+                checkBuffering();
+                i.attr('class','fas fa-pause');
+                audio.play();
+            }
+            else
+            {
+                selectTrack(1);
+            }
 		}
     }
     
